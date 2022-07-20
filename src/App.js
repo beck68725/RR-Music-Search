@@ -4,17 +4,17 @@ import Searchbar from './components/Searchbar'
 import { DataContext } from './context/DataContext'
 
 function App() {
-	let [search, setSearch] = useState('')
+	let [searchTerm, setSearchTerm] = useState('')
 	let [message, setMessage] = useState('Search for Music!')
 	let [data, setData] = useState([])
 
 	const API_URL = 'https://itunes.apple.com/search?term='
 
 	useEffect(() => {
-		if(search) {
+		if(searchTerm) {
 			const fetchData = async () => {
-				document.title = `${search} Music`
-				const response = await fetch(API_URL + search)
+				document.title = `${searchTerm} Music`
+				const response = await fetch(API_URL + searchTerm)
 				const resData = await response.json()
 				if (resData.results.length > 0) {
 					setData(resData.results)
@@ -24,11 +24,11 @@ function App() {
 			}
 			fetchData()
 		}
-	}, [search])
+	}, [searchTerm])
 	
 	const handleSearch = (e, term) => {
 		e.preventDefault()
-		setSearch(term)
+		setSearchTerm(term)
 	}
 
 	return (
