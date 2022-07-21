@@ -3,6 +3,7 @@ import Gallery from './components/Gallery'
 import Searchbar from './components/Searchbar'
 //import { DataContext } from './context/DataContext'
 import {createResource as fetchData} from './helper'
+import Spinner from './components/Spinner'
 
 function App() {
 	let [searchTerm, setSearchTerm] = useState('')
@@ -27,7 +28,7 @@ function App() {
 	const renderGallery = () => {
 		if(data){
 			return (
-				<Suspense fallback={<h1>Loading...</h1>}>
+				<Suspense fallback={<Spinner />}>
 					<Gallery data={data} />
 				</Suspense>
 			)
