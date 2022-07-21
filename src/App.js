@@ -7,10 +7,10 @@ import Spinner from './components/Spinner'
 
 function App() {
 	let [searchTerm, setSearchTerm] = useState('')
-	let [message, setMessage] = useState('Search for Music!')
+	let [message] = useState('Search for Music!')
 	let [data, setData] = useState(null)
 
-	const API_URL = 'https://itunes.apple.com/search?term='
+	//const API_URL = 'https://itunes.apple.com/search?term='
 
 	useEffect(() => {
 		if (searchTerm) {

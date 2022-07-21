@@ -1,5 +1,5 @@
 // Gallery.js
-import { useContext } from 'react'
+//import { useContext } from 'react'
 
 import GalleryItem from './GalleryItem'
 
